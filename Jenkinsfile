@@ -17,7 +17,7 @@ pipeline{
                     sh """
                     mvn package sonar:sonar \
                     -Dsonar.projectKey='devibanne' \
-                    -Dsonar.organization='devi' \
+                    -Dsonar.organization='devibanne' \
                     -Dsonar.host.url='https://sonarcloud.io/' \
                     -Dsonar.login=$SONAR
                                            """
