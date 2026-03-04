@@ -12,7 +12,7 @@ pipeline{
         }
         stage('build and scan'){
             steps{
-                withCredentials([string(credentialsId:'sonar', variable:'SONAR')]){
+                withCredentials([string(credentialsId:'sonar_id', variable:'SONAR')]){
                 withSonarQubeEnv('sonar'){
                     sh """
                     mvn package sonar:sonar \
