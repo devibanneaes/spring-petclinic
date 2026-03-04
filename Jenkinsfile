@@ -1,5 +1,5 @@
 pipeline{
-    agent{label 'JAVA'}
+    agent{label 'spc'}
     triggers{
         pollSCM('* * * * *')
     }
@@ -12,12 +12,12 @@ pipeline{
         }
         stage('build and scan'){
             steps{
-                withCredentials([string(credentialsId:'mysonar_Id', variable:'SONAR')]){
+                withCredentials([string(credentialsId:'sonar', variable:'SONAR')]){
                 withSonarQubeEnv('sonar'){
                     sh """
                     mvn package sonar:sonar \
-                    -Dsonar.projectKey='devibanne' \
-                    -Dsonar.organization='devibanne' \
+                    -Dsonar.projectKey='devibanneaes' \
+                    -Dsonar.organization='devibanneaes' \
                     -Dsonar.host.url='https://sonarcloud.io/' \
                     -Dsonar.login=$SONAR
                                            """
