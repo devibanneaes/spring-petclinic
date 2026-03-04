@@ -12,18 +12,29 @@ pipeline{
         }
         stage('build and scan'){
             steps{
-                withCredentials([string(credentialsId:'sonar_id', variable:'SONAR')]){
-                withSonarQubeEnv('sonar'){
+                withCredentials([string(credentialsId:'sonar_id', variable:'SONAR')]) {
+                withSonarQubeEnv('sonar') {
                     sh """
                     mvn package sonar:sonar \
                     -Dsonar.projectKey='devibanneaes' \
                     -Dsonar.organization='devibanneaes' \
                     -Dsonar.host.url='https://sonarcloud.io/' \
                     -Dsonar.login=$SONAR
-                                           """
+                    """
                 }
                 }
             }
         }
-    }
+    }    
+        
+        
 }
+
+    post {
+        always {
+            archiveArtifacts artifacts: '**/*.jar'
+            junit '**/target/surefire-reports/*.xml'
+        }
+    }
+
+
