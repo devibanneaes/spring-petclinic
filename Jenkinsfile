@@ -33,8 +33,8 @@
 
     post {
         always {
-            archiveArtifacts artifacts: '* * * /*.jar',
-            junit '* */surefire-reports/* .xml'
+            archiveArtifacts artifacts: '**/*.jar',
+            junit '**/surefire-reports/*.xml'
         }
     }
 }
