@@ -14,5 +14,5 @@ jobs:
       - name: gitcheckout
         uses: actions/checkout@v4
 
-      - name: buildjavawithmaven
+      - name: build java with maven
         run: mvn package
