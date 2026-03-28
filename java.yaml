@@ -7,12 +7,12 @@ on:
 
 jobs:
   build:
-    name: my-spc
+  - name: my-spc
     runs-on: self-hosted
 
     steps:
       - name: gitcheckout
         uses: actions/checkout@v4
 
-      - name: build java with maven
+      - name: buildjavawithmaven
         run: mvn package
