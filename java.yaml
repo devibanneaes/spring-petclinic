@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-  - name: my-spc
+    name: my-spc
     runs-on: self-hosted
 
     steps:
@@ -16,3 +16,8 @@ jobs:
 
       - name: build java with maven
         run: mvn package
+
+      - name: SonarQube Scan
+        run: mvn sonar:sonar \
+          -Dsonar.host.url=${{ secrets.https://sonarcloud.io/ }} \
+          -Dsonar.login=${{ secrets.e7820e5fa3fff62d96c876f45902fdf107fa5c63 }}
