@@ -12,12 +12,19 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v5
+        uses: actions/checkout@
+        
+      - name: Setup Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 17
+
 
       - name: Build Java with Maven
         run: mvn clean package
 
       - name: SonarQube Scan
         run: mvn sonar:sonar \
-          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.host.url=${{ secrets.https://sonarcloud.io/}} \
+          -Dsonar.login=${{ secrets.e7820e5fa3fff62d96c876f45902fdf107fa5c63 }}
