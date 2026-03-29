@@ -11,13 +11,13 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: gitcheckout
+      - name: Checkout Code
         uses: actions/checkout@v5
 
-      - name: build java with maven
-        run: mvn package
+      - name: Build Java with Maven
+        run: mvn clean package
 
       - name: SonarQube Scan
         run: mvn sonar:sonar \
-          -Dsonar.host.url=${{ secrets.https://sonarcloud.io/ }} \
-          -Dsonar.login=${{ secrets.e7820e5fa3fff62d96c876f45902fdf107fa5c63 }}
+          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
