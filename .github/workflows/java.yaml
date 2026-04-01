@@ -18,6 +18,10 @@ jobs:
         run: mvn clean package
 
       - name:  Build and sonar scan
-      - run: mvn clean verify sonar:sonar -Dsonar.projectKey=devibanneaes_spring-petclinic -Dsonar.organization=devi -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+        run: mvn clean verify sonar:sonar \
+          -Dsonar.projectKey=devibanneaes_spring-petclinic \
+          -Dsonar.organization=devi \
+          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
        
           
