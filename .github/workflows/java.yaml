@@ -27,6 +27,3 @@ jobs:
           -Dsonar.organization=devi
           -Dsonar.projectName=petclinic
           -Dsonar.projectKey=devibanneaes_spring-petclinic
- 
-
-  
