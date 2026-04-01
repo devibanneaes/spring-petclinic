@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: my-spc
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     
     steps:
       - name: Gitcheckout
@@ -17,13 +17,13 @@ jobs:
       - name: Build Java with Maven
         run: mvn clean package
 
-      - name:  Build and analiyze
-      - uses: SonarSource/sonarqube-scan-action@4
-        env:
-           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-           SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }} 
-        with:
-        args:
-          -Dsonar.organization=devi
-          -Dsonar.projectName=petclinic
-          -Dsonar.projectKey=devibanneaes_spring-petclinic
+     # - name:  Build and analiyze
+     # - uses: SonarSource/sonarqube-scan-action@4
+       # env:
+        #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+         #  SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }} 
+       # with:
+        #args:
+        #  -Dsonar.organization=devi
+        #  -Dsonar.projectName=petclinic
+          #-Dsonar.projectKey=devibanneaes_spring-petclinic
