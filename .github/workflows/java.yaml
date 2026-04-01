@@ -18,20 +18,12 @@ jobs:
         run: mvn clean package
 
       
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2
-        with:
-          args: >
-            -X
-            -Dsonar.projectKey=devibanneaes_spring-petclinic
-            -Dsonar.organization=devibanneaes
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-       
-       
-       
-       
-       
+      - name: Build and Sonar Scan
+        run: mvn clean verify sonar:sonar \
+          -Dsonar.projectKey=devibanneaes_spring-petclinic \
+          -Dsonar.organization=devibanneaes \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
        
        
        
