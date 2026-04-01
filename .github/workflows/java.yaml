@@ -18,7 +18,7 @@ jobs:
         run: mvn clean package
 
       - name:  Build and sonar scan
-        run: mvn clean verify sonar:sonar \
+        run: mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
           -Dsonar.projectKey=devibanneaes_spring-petclinic \
           -Dsonar.organization=devi \
           -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
