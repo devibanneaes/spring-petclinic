@@ -1,0 +1,13 @@
+apiversion: v1
+kind: service 
+metadata: 
+  name: svc-spc
+spec:
+  type: NodePort
+  selector:
+    app: spc
+  ports:
+    - port: 8080
+      nodeport: 32000
+  
+   
