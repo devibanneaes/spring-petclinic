@@ -40,7 +40,7 @@ pipeline {
             
         
         
-        stage('spc java Docker Image Build'){
+        stage('Docker Image Build'){
             steps {
                sh "docker build -t ${image_name}:${tag_name} ."
             }
