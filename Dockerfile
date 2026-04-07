@@ -1,14 +1,14 @@
-FROM maven:3.9.9-eclipse-temurin-17 AS build
+FROM maven:3.9.9-eclipse-temurin-25 AS build
 ADD . /app
 WORKDIR /app
 RUN mvn package -DskipTests
 
-FROM eclipse-temurin:17-jdk-jammy AS runtime
+FROM eclipse-temurin:25-jdk-jammy AS runtime
 LABEL myproject=java
 LABEL author=devops
 
 ARG username=spc
-ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-25-openjdk-amd64
 
 RUN useradd -m -d /usr/share/aws -s /bin/bash ${username}
 
