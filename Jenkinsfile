@@ -1,9 +1,10 @@
 pipeline {
     agent { label 'spc' }
 
-    environment:
-        image_name ='spc'
+    environment {
+        image_name = 'spc'
         tag_name = '1.0'
+    }
 
     triggers {
         pollSCM('* * * * *')
@@ -17,6 +18,11 @@ pipeline {
                     branch: 'main'
             }
         }
+
+    
+
+            
+        
 
              //    stage('build and scan') {
             // steps {
@@ -74,11 +80,12 @@ pipeline {
         //     always {
         //     archiveArtifacts artifacts: '***/*.jar'
         //     junit '**/surefire-reports/*.xml'
-        // }
+          // }
     }
+}    
                     
         
-}
+
 
     
       
