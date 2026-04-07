@@ -51,17 +51,17 @@ pipeline {
             }   
         }  
     
-       stage('Image push to the ECR'){
-            steps {
-                sh """ aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 969578073062.dkr.ecr.ap-south-1.amazonaws.com && \
-                docker tag ${image_name}:${tag_name} 969578073062.dkr.ecr.ap-south-1.amazonaws.com/dev/spcjava:latest && \
-                docker image ls && \
-                docker push 969578073062.dkr.ecr.ap-south-1.amazonaws.com/dev/spcjava:latest """
-            }
+      // stage('Image push to the ECR'){
+            // steps {
+            //     sh """ aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 969578073062.dkr.ecr.ap-south-1.amazonaws.com && \
+            //     docker tag ${image_name}:${tag_name} 969578073062.dkr.ecr.ap-south-1.amazonaws.com/dev/spcjava:latest && \
+            //     docker image ls && \
+            //     docker push 969578073062.dkr.ecr.ap-south-1.amazonaws.com/dev/spcjava:latest """
+            // }
 
 
         
-        }
+        // }
        // stage('depoly to k8s for dev') {
           //  steps {
            //     sh 'kubctl apply -f depoly-k8s/.'
