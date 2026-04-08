@@ -63,14 +63,20 @@ pipeline {
         }     
 
         stage('deploy to k8s for dev') {
-           steps {
-              withCredentials([file(credentialsId: 'myeks', variable:'KUBECONFIG')]) {
-                  sh 'kubectl apply -f deploy-k8s/.'
+          steps {
+              withCredentials([file(credentialsId: 'myeks', variable: 'KUBECONFIG')]) {
+                   sh '''
+                    kubectl apply -f deploy-k8s/. --validate=false
+                    kubectl get pods -n dev
+                  '''
                 }
-            }
-        }        
-        
+           }
+        }         
     
+               
+        
+    }
+}    
   
             
         
