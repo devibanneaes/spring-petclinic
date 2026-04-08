@@ -2,9 +2,12 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: myspc-pod
+  namespace: dev
+  labels:
+    app: spc
 spec:
   containers:
-  - name: my-java-container
-    image: 969578073062.dkr.ecr.ap-south-1.amazonaws.com/dev/spcjava:latest
-    ports:
-    - containerPort: 8080
+    - name: my-java-container
+      image: 969578073062.dkr.ecr.ap-south-1.amazonaws.com/dev/spcjava:latest
+      ports:
+        - containerPort: 80
